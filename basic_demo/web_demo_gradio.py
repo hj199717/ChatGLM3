@@ -38,7 +38,7 @@ from transformers import (
 ModelType = Union[PreTrainedModel, PeftModelForCausalLM]
 TokenizerType = Union[PreTrainedTokenizer, PreTrainedTokenizerFast]
 
-MODEL_PATH = os.environ.get('MODEL_PATH', 'THUDM/chatglm3-6b')
+MODEL_PATH = os.environ.get('MODEL_PATH', r'/home/LLM/chatglm3-6b')
 TOKENIZER_PATH = os.environ.get("TOKENIZER_PATH", MODEL_PATH)
 
 
@@ -174,4 +174,5 @@ with gr.Blocks() as demo:
     emptyBtn.click(lambda: None, None, chatbot, queue=False)
 
 demo.queue()
-demo.launch(server_name="127.0.0.1", server_port=7870, inbrowser=True, share=False)
+# demo.launch(server_name="127.0.0.1", server_port=7870, inbrowser=True, share=False)
+demo.launch(server_name="0.0.0.0", server_port=7860, inbrowser=True, share=False)
